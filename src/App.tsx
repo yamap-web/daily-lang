@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+// import Header from './components/Header';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
+  const date = new Date();
+  const currentYear = date.getFullYear();
+  const currentMonth = months[date.getMonth()];
+  const currentDay = date.getDate();
 
   return (
     <>
+      {/* <Header /> */}
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          {currentMonth} {currentDay}, {currentYear}
         </p>
+        <hgroup>
+          <h1 className="mt-6">Java</h1>
+          <p className="text-lg font-bold mt-2">「値の出力」</p>
+        </hgroup>
+        <div className="mockup-code shadow-xl mt-6">
+          <pre data-prefix="1">
+            <code>System.out.println("Hello World");</code>
+          </pre>
+        </div>
+        <div className="card bg-base-100 w-96 shadow-xl mt-6">
+          <div className="card-body">
+            <h2 className="card-title">// memo</h2>
+            <p>printlnは、"print line"の略</p>
+            <p>JavaScriptでいう"console.log"</p>
+          </div>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
